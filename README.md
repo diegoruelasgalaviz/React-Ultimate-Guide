@@ -1,36 +1,53 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# React Ultimate Guide
 
-## Getting Started
+A free, self-contained study reference for React.js and its ecosystem — built to teach,
+help you study, and serve as a lookup reference whether you're writing your first
+component or architecting a large-scale app. Everything lives in the frontend: there is
+no backend, no database, and no signup. All documents and quiz questions are embedded
+directly in the code as static data.
 
-First, run the development server:
+## What's inside
+
+- **Landing page (`/`)** — overview, stats, and entry points into the rest of the site.
+- **Documents (`/docs`)** — a library of React topics, each its own study document,
+  spanning **Junior → Mid → Senior → Graduate** level. Includes a search bar and a
+  difficulty-level filter.
+- **Gamify (`/gamify`)** — a scored, streak-based quiz tied directly to the documents,
+  with points weighted by difficulty and a bonus for answer streaks.
+
+## Tech stack
+
+- [Next.js](https://nextjs.org) (App Router)
+- React 19
+- Tailwind CSS v4
+- No backend, no external APIs — all content is static data under `src/data/`
+
+## Getting started
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to view it.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## Project structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```
+src/
+  app/
+    page.js                # Landing page
+    docs/page.js            # Documents listing (search + filter)
+    docs/[topicId]/page.js  # Individual document page
+    gamify/page.js          # Gamified quiz page
+  components/               # Navbar, Footer, TopicCard, GamifyGame, etc.
+  data/
+    topics.js               # The full study document library
+    quiz.js                 # Quiz question bank, tied to topics by id
+```
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Adding a new document is just adding an entry to `src/data/topics.js` (title, level,
+category, and structured content blocks) — no routing or UI code required, since the
+`/docs/[topicId]` route renders any topic automatically.
