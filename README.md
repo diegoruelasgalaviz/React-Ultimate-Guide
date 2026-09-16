@@ -1,16 +1,53 @@
-# React + Vite
+# React Ultimate Guide
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+A free, self-contained study reference for React.js and its ecosystem — built to teach,
+help you study, and serve as a lookup reference whether you're writing your first
+component or architecting a large-scale app. Everything lives in the frontend: there is
+no backend, no database, and no signup. All documents and quiz questions are embedded
+directly in the code as static data.
 
-Currently, two official plugins are available:
+## What's inside
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- **Landing page (`/`)** — overview, stats, and entry points into the rest of the site.
+- **Documents (`/docs`)** — a library of React topics, each its own study document,
+  spanning **Junior → Mid → Senior → Graduate** level. Includes a search bar and a
+  difficulty-level filter.
+- **Gamify (`/gamify`)** — a scored, streak-based quiz tied directly to the documents,
+  with points weighted by difficulty and a bonus for answer streaks.
 
-## React Compiler
+## Tech stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- [Next.js](https://nextjs.org) (App Router)
+- React 19
+- Tailwind CSS v4
+- No backend, no external APIs — all content is static data under `src/data/`
 
-## Expanding the Oxlint configuration
+## Getting started
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000) to view it.
+
+## Project structure
+
+```
+src/
+  app/
+    page.js                # Landing page
+    docs/page.js            # Documents listing (search + filter)
+    docs/[topicId]/page.js  # Individual document page
+    gamify/page.js          # Gamified quiz page
+  components/               # Navbar, Footer, TopicCard, GamifyGame, etc.
+  data/
+    topics.js               # The full study document library
+    quiz.js                 # Quiz question bank, tied to topics by id
+```
+
+## Contributing
+
+Adding a new document is just adding an entry to `src/data/topics.js` (title, level,
+category, and structured content blocks) — no routing or UI code required, since the
+`/docs/[topicId]` route renders any topic automatically.
