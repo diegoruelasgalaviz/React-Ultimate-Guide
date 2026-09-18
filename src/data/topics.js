@@ -13,11 +13,14 @@ export const topics = [
   {
     id: 'jsx-basics',
     title: 'JSX & Rendering Basics',
+    title_es: 'JSX y Fundamentos del Renderizado',
     level: 'Junior',
     category: 'Fundamentals',
     minutes: 6,
     summary:
       'What JSX actually compiles to, how React renders elements, and the rules that trip up beginners.',
+    summary_es:
+      'A qué se compila realmente el JSX, cómo React renderiza elementos, y las reglas que confunden a los principiantes.',
     tags: ['jsx', 'rendering', 'elements'],
     blocks: [
       p(
@@ -52,11 +55,14 @@ const el = React.createElement('h1', { className: 'title' }, 'Hi, ', name)`
   {
     id: 'components-props',
     title: 'Components & Props',
+    title_es: 'Componentes y Props',
     level: 'Junior',
     category: 'Fundamentals',
     minutes: 7,
     summary:
       'Function components as pure(ish) functions of props, composition over inheritance, and prop drilling basics.',
+    summary_es:
+      'Los componentes de función como funciones (casi) puras de las props, composición sobre herencia, y los fundamentos del prop drilling.',
     tags: ['components', 'props', 'composition'],
     blocks: [
       p(
@@ -102,11 +108,14 @@ const el = React.createElement('h1', { className: 'title' }, 'Hi, ', name)`
   {
     id: 'usestate',
     title: 'State with useState',
+    title_es: 'Estado con useState',
     level: 'Junior',
     category: 'Hooks',
     minutes: 7,
     summary:
       'How useState works, why state updates are asynchronous and batched, and the functional-updater pattern.',
+    summary_es:
+      'Cómo funciona useState, por qué las actualizaciones de estado son asíncronas y agrupadas, y el patrón de actualización funcional.',
     tags: ['hooks', 'usestate', 'state'],
     blocks: [
       p(
@@ -154,11 +163,14 @@ setCount((c) => c + 1) // count is +2`
   {
     id: 'event-handling',
     title: 'Handling Events',
+    title_es: 'Manejo de Eventos',
     level: 'Junior',
     category: 'Fundamentals',
     minutes: 5,
     summary:
       "React's synthetic event system, passing arguments to handlers, and preventing default behavior correctly.",
+    summary_es:
+      'El sistema de eventos sintéticos de React, cómo pasar argumentos a los manejadores, y cómo prevenir el comportamiento por defecto correctamente.',
     tags: ['events', 'synthetic-events'],
     blocks: [
       p(
@@ -188,11 +200,14 @@ setCount((c) => c + 1) // count is +2`
   {
     id: 'conditional-list-rendering',
     title: 'Conditional & List Rendering',
+    title_es: 'Renderizado Condicional y de Listas',
     level: 'Junior',
     category: 'Fundamentals',
     minutes: 6,
     summary:
       'Ternaries vs &&, rendering arrays with map, and why keys matter for reconciliation correctness.',
+    summary_es:
+      'Ternarios vs &&, renderizado de arrays con map, y por qué las keys son importantes para la corrección de la reconciliación.',
     tags: ['lists', 'keys', 'conditional'],
     blocks: [
       h3('Conditional rendering patterns'),
@@ -224,11 +239,14 @@ setCount((c) => c + 1) // count is +2`
   {
     id: 'forms-controlled-inputs',
     title: 'Forms & Controlled Inputs',
+    title_es: 'Formularios e Inputs Controlados',
     level: 'Junior',
     category: 'Fundamentals',
     minutes: 7,
     summary:
       'Controlled vs uncontrolled inputs, handling multiple fields, and basic client-side validation.',
+    summary_es:
+      'Inputs controlados vs no controlados, manejo de múltiples campos, y validación básica del lado del cliente.',
     tags: ['forms', 'controlled-components'],
     blocks: [
       p(
@@ -265,11 +283,14 @@ function handleChange(e) {
   {
     id: 'useeffect',
     title: 'useEffect & Side Effects',
+    title_es: 'useEffect y Efectos Secundarios',
     level: 'Mid',
     category: 'Hooks',
     minutes: 9,
     summary:
       'Synchronizing with external systems, the dependency array, cleanup functions, and the effects mental model.',
+    summary_es:
+      'Sincronización con sistemas externos, el arreglo de dependencias, funciones de limpieza, y el modelo mental de los efectos.',
     tags: ['hooks', 'useeffect', 'side-effects'],
     blocks: [
       p(
@@ -313,11 +334,14 @@ function handleChange(e) {
   {
     id: 'refs-and-dom',
     title: 'Refs & Imperative DOM Access',
+    title_es: 'Refs y Acceso Imperativo al DOM',
     level: 'Mid',
     category: 'Hooks',
     minutes: 6,
     summary:
       'useRef for mutable values and DOM access, forwardRef, and when imperative code is the right tool.',
+    summary_es:
+      'useRef para valores mutables y acceso al DOM, forwardRef, y cuándo el código imperativo es la herramienta correcta.',
     tags: ['hooks', 'useref', 'dom'],
     blocks: [
       p(
@@ -352,11 +376,14 @@ function handleChange(e) {
   {
     id: 'context-api',
     title: 'Context API',
+    title_es: 'API de Context',
     level: 'Mid',
     category: 'State Management',
     minutes: 8,
     summary:
       'Avoiding prop drilling with Context, provider/consumer patterns, and performance pitfalls.',
+    summary_es:
+      'Cómo evitar el prop drilling con Context, patrones de proveedor/consumidor, y los problemas de rendimiento a evitar.',
     tags: ['context', 'state-management'],
     blocks: [
       p(
@@ -399,11 +426,14 @@ const value = useMemo(() => ({ user, setUser }), [user])
   {
     id: 'react-router',
     title: 'Client-Side Routing Concepts',
+    title_es: 'Conceptos de Enrutamiento del Lado del Cliente',
     level: 'Mid',
     category: 'Ecosystem',
     minutes: 8,
     summary:
       'How SPA routing works under the hood, nested layouts, dynamic params, and data loading patterns (React Router and the Next.js App Router).',
+    summary_es:
+      'Cómo funciona el enrutamiento de una SPA por dentro, layouts anidados, parámetros dinámicos, y patrones de carga de datos (React Router y el App Router de Next.js).',
     tags: ['routing', 'react-router', 'nextjs', 'spa'],
     blocks: [
       p(
@@ -449,11 +479,14 @@ export default async function DocPage({ params }) {
   {
     id: 'custom-hooks',
     title: 'Custom Hooks',
+    title_es: 'Hooks Personalizados',
     level: 'Mid',
     category: 'Hooks',
     minutes: 7,
     summary:
       'Extracting reusable stateful logic into your own hooks, naming conventions, and composition rules.',
+    summary_es:
+      'Cómo extraer lógica de estado reutilizable en tus propios hooks, convenciones de nombres, y reglas de composición.',
     tags: ['hooks', 'custom-hooks', 'reuse'],
     blocks: [
       p(
@@ -493,11 +526,14 @@ const debouncedQuery = useDebouncedValue(query, 300)`
   {
     id: 'usememo-usecallback',
     title: 'useMemo & useCallback',
+    title_es: 'useMemo y useCallback',
     level: 'Mid',
     category: 'Performance',
     minutes: 8,
     summary:
       'What memoization hooks actually do, referential equality, and when they are worth the complexity.',
+    summary_es:
+      'Qué hacen realmente los hooks de memoización, la igualdad referencial, y cuándo valen la pena la complejidad que agregan.',
     tags: ['hooks', 'performance', 'memoization'],
     blocks: [
       p(
@@ -530,11 +566,14 @@ const handleSelect = useCallback(
   {
     id: 'state-management-at-scale',
     title: 'State Management at Scale',
+    title_es: 'Gestión de Estado a Gran Escala',
     level: 'Senior',
     category: 'State Management',
     minutes: 10,
     summary:
       'Choosing between local state, Context, and libraries like Redux/Zustand; colocating state correctly.',
+    summary_es:
+      'Cómo elegir entre estado local, Context, y librerías como Redux/Zustand; cómo colocar el estado correctamente.',
     tags: ['redux', 'zustand', 'architecture'],
     blocks: [
       p(
@@ -584,11 +623,14 @@ const itemCount = useCartStore((s) => s.items.length)`
   {
     id: 'performance-optimization',
     title: 'Performance Optimization Patterns',
+    title_es: 'Patrones de Optimización de Rendimiento',
     level: 'Senior',
     category: 'Performance',
     minutes: 10,
     summary:
       'React.memo, code splitting, virtualization, and how to actually profile before optimizing.',
+    summary_es:
+      'React.memo, code splitting, virtualización, y cómo perfilar realmente antes de optimizar.',
     tags: ['performance', 'memo', 'virtualization', 'code-splitting'],
     blocks: [
       h3('Profile first'),
@@ -628,11 +670,14 @@ const itemCount = useCartStore((s) => s.items.length)`
   {
     id: 'design-patterns',
     title: 'Component Design Patterns',
+    title_es: 'Patrones de Diseño de Componentes',
     level: 'Senior',
     category: 'Architecture',
     minutes: 9,
     summary:
       'Higher-order components, render props, and compound components — what problems each pattern solves.',
+    summary_es:
+      'Componentes de orden superior, render props, y componentes compuestos — qué problema resuelve cada patrón.',
     tags: ['patterns', 'hoc', 'render-props', 'compound-components'],
     blocks: [
       h3('Higher-Order Components (HOCs)'),
@@ -679,11 +724,14 @@ const ProtectedDashboard = withAuth(Dashboard)`
   {
     id: 'testing-react',
     title: 'Testing React Applications',
+    title_es: 'Pruebas en Aplicaciones React',
     level: 'Senior',
     category: 'Testing',
     minutes: 9,
     summary:
       'Testing philosophy with React Testing Library, what to mock, and the testing pyramid for UI code.',
+    summary_es:
+      'Filosofía de pruebas con React Testing Library, qué mockear, y la pirámide de pruebas para código de interfaz.',
     tags: ['testing', 'jest', 'react-testing-library'],
     blocks: [
       p(
@@ -719,11 +767,14 @@ const ProtectedDashboard = withAuth(Dashboard)`
   {
     id: 'typescript-with-react',
     title: 'TypeScript with React',
+    title_es: 'TypeScript con React',
     level: 'Senior',
     category: 'Ecosystem',
     minutes: 9,
     summary:
       'Typing props, hooks, and events correctly, and where type inference already does the job for you.',
+    summary_es:
+      'Cómo tipar props, hooks, y eventos correctamente, y dónde la inferencia de tipos ya hace el trabajo por ti.',
     tags: ['typescript', 'types'],
     blocks: [
       p(
@@ -784,11 +835,14 @@ function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
   {
     id: 'accessibility',
     title: 'Accessibility (a11y) in React',
+    title_es: 'Accesibilidad (a11y) en React',
     level: 'Senior',
     category: 'Accessibility',
     minutes: 8,
     summary:
       'Semantic HTML first, ARIA as a last resort, focus management, and testing with automated tools.',
+    summary_es:
+      'HTML semántico primero, ARIA como último recurso, gestión del foco, y pruebas con herramientas automatizadas.',
     tags: ['a11y', 'accessibility', 'aria'],
     blocks: [
       p(
@@ -825,11 +879,14 @@ function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
   {
     id: 'concurrent-rendering-suspense',
     title: 'Concurrent Rendering & Suspense',
+    title_es: 'Renderizado Concurrente y Suspense',
     level: 'Graduate',
     category: 'Internals',
     minutes: 11,
     summary:
       'How React can interrupt, pause, and prioritize rendering work, and what Suspense actually coordinates.',
+    summary_es:
+      'Cómo React puede interrumpir, pausar, y priorizar el trabajo de renderizado, y qué coordina realmente Suspense.',
     tags: ['concurrent', 'suspense', 'fiber', 'scheduler'],
     blocks: [
       p(
@@ -873,11 +930,14 @@ function handleChange(e) {
   {
     id: 'server-components-nextjs',
     title: 'Server Components & the Next.js App Router',
+    title_es: 'Server Components y el App Router de Next.js',
     level: 'Graduate',
     category: 'Architecture',
     minutes: 12,
     summary:
       'The client/server component split, streaming SSR, and how the App Router changes the data-fetching model.',
+    summary_es:
+      'La división entre componentes de servidor y de cliente, el SSR en streaming, y cómo el App Router cambia el modelo de obtención de datos.',
     tags: ['rsc', 'ssr', 'nextjs', 'streaming'],
     blocks: [
       h3('Why server rendering at all'),
@@ -925,11 +985,14 @@ function ProductRow({ product }) {
   {
     id: 'build-tooling',
     title: 'Build Tooling & Bundling',
+    title_es: 'Herramientas de Build y Bundling',
     level: 'Graduate',
     category: 'Internals',
     minutes: 10,
     summary:
       'What a bundler actually does, ESM vs CommonJS, tree-shaking, and how Next.js/Turbopack fit in.',
+    summary_es:
+      'Qué hace realmente un bundler, ESM vs CommonJS, tree-shaking, y cómo encajan Next.js/Turbopack.',
     tags: ['nextjs', 'turbopack', 'webpack', 'bundling'],
     blocks: [
       p(
@@ -960,11 +1023,14 @@ function ProductRow({ product }) {
   {
     id: 'architecting-large-apps',
     title: 'Architecting Large-Scale React Applications',
+    title_es: 'Arquitectura de Aplicaciones React a Gran Escala',
     level: 'Graduate',
     category: 'Architecture',
     minutes: 11,
     summary:
       'Feature-based folder structure, module boundaries, and scaling a codebase across many contributors.',
+    summary_es:
+      'Estructura de carpetas basada en features, límites entre módulos, y cómo escalar un código base entre muchos colaboradores.',
     tags: ['architecture', 'scalability', 'monorepo'],
     blocks: [
       h3('From "type-based" to "feature-based" structure'),

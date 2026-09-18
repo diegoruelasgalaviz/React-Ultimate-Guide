@@ -1,3 +1,7 @@
+'use client'
+
+import { useLanguage } from '@/i18n/LanguageProvider'
+
 const STYLES = {
   Junior: 'bg-emerald-500/15 text-emerald-300 border-emerald-500/30',
   Mid: 'bg-sky-500/15 text-sky-300 border-sky-500/30',
@@ -6,12 +10,13 @@ const STYLES = {
 }
 
 export default function LevelBadge({ level, className = '' }) {
+  const { levelLabel } = useLanguage()
   const style = STYLES[level] ?? 'bg-white/10 text-gray-300 border-white/20'
   return (
     <span
       className={`inline-flex items-center rounded-full border px-2.5 py-0.5 text-xs font-medium ${style} ${className}`}
     >
-      {level}
+      {levelLabel(level)}
     </span>
   )
 }

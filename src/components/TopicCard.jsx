@@ -1,7 +1,14 @@
+'use client'
+
 import Link from 'next/link'
+import { useLanguage } from '@/i18n/LanguageProvider'
 import LevelBadge from './LevelBadge'
 
 export default function TopicCard({ topic }) {
+  const { t, categoryLabel } = useLanguage()
+  const title = topic.localizedTitle ?? topic.title
+  const summary = topic.localizedSummary ?? topic.summary
+
   return (
     <Link
       href={`/docs/${topic.id}`}
@@ -9,15 +16,17 @@ export default function TopicCard({ topic }) {
     >
       <div className="mb-3 flex items-center justify-between">
         <LevelBadge level={topic.level} />
-        <span className="text-xs text-gray-500">{topic.minutes} min read</span>
+        <span className="text-xs text-gray-500">
+          {topic.minutes} {t('docs_min_read')}
+        </span>
       </div>
       <h3 className="mb-1.5 text-lg font-semibold text-white transition group-hover:text-brand-300">
-        {topic.title}
+        {title}
       </h3>
-      <p className="mb-4 flex-1 text-sm leading-relaxed text-gray-400">{topic.summary}</p>
+      <p className="mb-4 flex-1 text-sm leading-relaxed text-gray-400">{summary}</p>
       <div className="flex flex-wrap gap-1.5">
         <span className="rounded-full bg-white/5 px-2 py-0.5 text-[11px] text-gray-400">
-          {topic.category}
+          {categoryLabel(topic.category)}
         </span>
         {topic.tags.slice(0, 2).map((tag) => (
           <span key={tag} className="rounded-full bg-white/5 px-2 py-0.5 text-[11px] text-gray-500">

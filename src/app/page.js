@@ -1,74 +1,73 @@
+'use client'
+
 import Link from 'next/link'
 import { topics, LEVELS, CATEGORIES } from '@/data/topics'
 import { questions } from '@/data/quiz'
 import LevelBadge from '@/components/LevelBadge'
+import { useLanguage } from '@/i18n/LanguageProvider'
 
 export default function Home() {
+  const { t, categoryLabel } = useLanguage()
   const levelCounts = LEVELS.map((level) => ({
     level,
-    count: topics.filter((t) => t.level === level).length,
+    count: topics.filter((topic) => topic.level === level).length,
   }))
 
   return (
     <>
       <section className="mx-auto max-w-6xl px-6 pt-20 pb-16 text-center">
         <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-xs font-medium text-gray-300">
-          No backend • No signup • Everything runs in your browser
+          {t('home_kicker')}
         </p>
         <h1 className="mx-auto max-w-3xl text-4xl font-bold tracking-tight text-white sm:text-6xl">
-          Learn React the way you&apos;d want a{' '}
+          {t('home_title_pre')}{' '}
           <span className="bg-gradient-to-r from-brand-300 to-brand-500 bg-clip-text text-transparent">
-            senior engineer
+            {t('home_title_highlight')}
           </span>{' '}
-          to teach it to you
+          {t('home_title_post')}
         </h1>
-        <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-400">
-          React Ultimate Guide is a free, open study reference covering React.js and its
-          ecosystem end to end — from your very first component to the internals of
-          concurrent rendering and Server Components. Read it, search it, and test
-          yourself with the gamified practice mode.
-        </p>
+        <p className="mx-auto mt-6 max-w-2xl text-lg text-gray-400">{t('home_lede')}</p>
         <div className="mt-10 flex flex-wrap items-center justify-center gap-4">
           <Link
             href="/docs"
             className="rounded-lg bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/25 transition hover:bg-brand-400"
           >
-            Browse the documents
+            {t('home_cta_docs')}
           </Link>
           <Link
             href="/gamify"
             className="rounded-lg border border-white/15 px-6 py-3 text-sm font-semibold text-gray-100 transition hover:border-brand-400 hover:text-white"
           >
-            Try the gamified quiz
+            {t('home_cta_gamify')}
           </Link>
         </div>
 
         <dl className="mx-auto mt-16 grid max-w-3xl grid-cols-2 gap-6 sm:grid-cols-4">
-          <Stat label="Topics" value={topics.length} />
-          <Stat label="Levels" value={LEVELS.length} />
-          <Stat label="Categories" value={CATEGORIES.length} />
-          <Stat label="Quiz questions" value={questions.length} />
+          <Stat label={t('stat_topics')} value={topics.length} />
+          <Stat label={t('stat_levels')} value={LEVELS.length} />
+          <Stat label={t('stat_categories')} value={CATEGORIES.length} />
+          <Stat label={t('stat_questions')} value={questions.length} />
         </dl>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="grid gap-6 sm:grid-cols-3">
           <FeatureCard
-            title="Documents"
+            title={t('feature_docs_title')}
             href="/docs"
-            description="Every topic is its own self-contained study document — real explanations and code, not flashcards. Filter by difficulty or search by keyword to find exactly what you need."
+            description={t('feature_docs_body')}
             icon="📚"
           />
           <FeatureCard
-            title="Gamify"
+            title={t('feature_gamify_title')}
             href="/gamify"
-            description="Turn studying into a game: answer questions tied to each document, build a streak, earn points by difficulty, and see how far you get before missing one."
+            description={t('feature_gamify_body')}
             icon="🎮"
           />
           <FeatureCard
-            title="Reference, forever"
+            title={t('feature_reference_title')}
             href="/docs"
-            description="Come back any time you need a refresher — on hooks, rendering internals, testing, or architecture — without digging through scattered blog posts."
+            description={t('feature_reference_body')}
             icon="🧭"
           />
         </div>
@@ -76,9 +75,9 @@ export default function Home() {
 
       <section className="mx-auto max-w-6xl px-6 py-16">
         <div className="mb-8 flex items-end justify-between">
-          <h2 className="text-2xl font-bold text-white">A curriculum from junior to graduate level</h2>
+          <h2 className="text-2xl font-bold text-white">{t('home_curriculum_title')}</h2>
           <Link href="/docs" className="text-sm font-medium text-brand-300 hover:text-brand-200">
-            View all documents →
+            {t('home_curriculum_cta')}
           </Link>
         </div>
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -86,37 +85,36 @@ export default function Home() {
             <div key={level} className="rounded-xl border border-white/10 bg-white/[0.03] p-5">
               <LevelBadge level={level} />
               <p className="mt-3 text-3xl font-bold text-white">{count}</p>
-              <p className="text-sm text-gray-400">{count === 1 ? 'topic' : 'topics'}</p>
+              <p className="text-sm text-gray-400">
+                {count === 1 ? t('home_topic_singular') : t('home_topic_plural')}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
       <section className="mx-auto max-w-6xl px-6 py-16">
-        <h2 className="mb-8 text-2xl font-bold text-white">Everything is covered by category</h2>
+        <h2 className="mb-8 text-2xl font-bold text-white">{t('home_categories_title')}</h2>
         <div className="flex flex-wrap gap-3">
           {CATEGORIES.map((category) => (
             <span
               key={category}
               className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-gray-300"
             >
-              {category}
+              {categoryLabel(category)}
             </span>
           ))}
         </div>
       </section>
 
       <section className="mx-auto max-w-4xl px-6 py-20 text-center">
-        <h2 className="text-3xl font-bold text-white">Ready to level up?</h2>
-        <p className="mx-auto mt-4 max-w-xl text-gray-400">
-          Pick a topic that matches where you are today, and let the difficulty filter guide
-          you toward what&apos;s next.
-        </p>
+        <h2 className="text-3xl font-bold text-white">{t('home_ready_title')}</h2>
+        <p className="mx-auto mt-4 max-w-xl text-gray-400">{t('home_ready_body')}</p>
         <Link
           href="/docs"
           className="mt-8 inline-flex rounded-lg bg-brand-500 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-brand-500/25 transition hover:bg-brand-400"
         >
-          Start learning
+          {t('home_ready_cta')}
         </Link>
       </section>
     </>
